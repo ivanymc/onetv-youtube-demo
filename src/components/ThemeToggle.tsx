@@ -2,7 +2,7 @@ import { Sun, Moon } from 'lucide-react'
 import type { ThemeToggleProps } from '../types/types'
 import type { ThemeMode } from '../utils/theme'
 
-const iconMap: Record<ThemeMode, { icon: typeof Sun; label: string }> = {
+export const iconMap: Record<ThemeMode, { icon: typeof Sun; label: string }> = {
   light: { icon: Sun, label: 'Light theme' },
   dark: { icon: Moon, label: 'Dark theme' },
 }

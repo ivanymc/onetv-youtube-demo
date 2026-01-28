@@ -5,21 +5,13 @@ import { VideoFilters } from './components/VideoFilters';
 import { VideoListingPage } from './pages/VideoListingPage';
 import { applyThemeClass, getStoredTheme, resolveTheme, setStoredTheme } from './utils/theme';
 import type { OrderValue } from './types/types';
+import { DEFAULT_QUERIES } from './utils/defaultValues';
+import navLogo from './assets/logo.svg';
 
 const queryClient = new QueryClient();
 
-const DEFAULT_QUERIES = [
-  'Never Gonna Give You Up',
-  'Nyan Cat',
-  'Epic Sax Guy',
-  'Keyboard Cat',
-  'Trololo Song',
-  'Dramatic Chipmunk',
-  'Charlie Bit My Finger',
-]
-
 const getDailyDefaultQuery = () => {
-  const index = Math.floor(Math.random() * DEFAULT_QUERIES.length)
+  const index = Math.floor(Math.random() * DEFAULT_QUERIES.length);
   return DEFAULT_QUERIES[index];
 }
 
@@ -56,7 +48,7 @@ export default function App() {
         "
       >
         <img
-          src="/logo.svg"
+          src={navLogo}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="
             logo

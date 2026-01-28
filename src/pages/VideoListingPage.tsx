@@ -7,14 +7,7 @@ import type { VideoItem, VideoListingPageProps, VideoResponse } from '../types/t
 import { EmptyState, ErrorState } from '../components/States'
 import { LoadingSkeleton } from '../components/LoadingSkeleton'
 import { VideoGrid } from '../components/VideoGrid'
-
-const DEFAULT_QUERIES = [
-  'BBC World News',
-  'BBC Documentary',
-  'BBC Earth',
-  'National Geographic',
-  'TED Talks',
-]
+import { BACKEND_LIMIT, debounceTimeout, DEFAULT_QUERIES, PAGE_SIZE, revealTimeout } from '../utils/defaultValues'
 
 const getDailyDefaultQuery = () => {
   const day = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
@@ -22,10 +15,7 @@ const getDailyDefaultQuery = () => {
 }
 
 const DEFAULT_QUERY = getDailyDefaultQuery();
-const PAGE_SIZE = 9;
-const BACKEND_LIMIT = 48;
-const debounceTimeout = 500;
-const revealTimeout = 300;
+
 
 export const VideoListingPage = ({ queryInput, order }: VideoListingPageProps) => {
   const [items, setItems] = useState<VideoItem[]>([]);
