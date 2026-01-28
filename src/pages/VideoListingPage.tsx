@@ -195,7 +195,7 @@ export const VideoListingPage = ({ queryInput, order }: VideoListingPageProps) =
           aria-live="polite"
         >
           <Loader2
-            className="animate-spin text-[var(--color-accent)]"
+            className="animate-spin text-(--color-accent)"
             size={48}
             aria-label="Loading more videos"
           />
