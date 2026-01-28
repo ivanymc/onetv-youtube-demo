@@ -81,6 +81,14 @@ The UI uses React Query to manage caching, background refetching, and request ca
 ### Pagination token stack
 The YouTube API only supports forward pagination, so the client stores page tokens in a stack and uses them to fetch subsequent pages for infinite scrolling without losing the current results.
 
+### Pagination & API Strategy
+- The initial render displays 9 videos (PAGE_SIZE = 9) to satisfy the assessment requirement.
+- Infinite scroll is implemented using YouTube’s `nextPageToken` to progressively load additional content.
+- The YouTube Search API returns up to 50 results per request. The application fetches 48 items per call to reduce API round trips and improve perceived performance.
+- A batch size of 48 was chosen as it divides cleanly into the 3-column and 2-column responsive grid layouts, allowing consistent 9-item UI pagination and avoiding uneven rows during rendering.
+- Results are then paginated client-side into 9-item batches to maintain a clean and predictable layout while scrolling.
+
+
 ### Dark mode approach
 Theme mode defaults to system preferences and is persisted in `localStorage`. The theme is applied via a `data-theme` attribute with CSS variables for consistent styling.
 
